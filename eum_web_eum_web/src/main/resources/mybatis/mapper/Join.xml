@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eumWeb.main.join.mapper.JoinMapper">
+
+
+	<!-- 이메일로 사용자를 찾아서 그 수를 반환하는 쿼리 -->
+	<select id="countByEmail" resultType="int">
+		SELECT COUNT(*) FROM
+		tb_user
+		WHERE user_email = #{userEmail}
+	</select>
+	<!-- 휴대폰번호로 사용자를 찾아서 그 수를 반환하는 쿼리 -->
+	<select id="countByPhone" resultType="int">
+		SELECT COUNT(*) FROM
+		tb_user
+		WHERE user_phone = #{phone}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="getSignDate">
+		INSERT INTO tb_user
+		(USER_NAME, USER_EMAIL, USER_PW, USER_PHONE, USER_GRADE, CORRECTION_DATE,
+		USER_BIRTH, USER_ADD1, USER_ADD2, USER_ADD3)
+		VALUES
+		(#{userName}, #{userEmail}, #{encodedPassword}, #{userPhone}, #{userGrade},
+		SYSDATE,#{userBirth}, #{userAdd1}, #{userAdd2}, #{userAdd3})
+	</insert>
+	
+</mapper>
