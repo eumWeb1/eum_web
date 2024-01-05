@@ -21,5 +21,6 @@ public class noticeController {
 	@GetMapping("/oneNoticePage")
 	public String oneNoticePage() {
 		return "/oneNoticePage";
+		//asdasd
 	}
 }
