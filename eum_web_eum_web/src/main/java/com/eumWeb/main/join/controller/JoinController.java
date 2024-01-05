@@ -17,7 +17,7 @@ public class JoinController {
 	@Autowired
 	JoinService joinService;
 	
-	
+	// sadasdas
 	@PostMapping("/emailCheck")
 	@ResponseBody
 	public boolean emailCheck(@RequestParam String userEmail) {
